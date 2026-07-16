@@ -32,9 +32,7 @@ json getTodaysQuote(fs::path resource_path) {
 
     int quoteCount = data["quotes"].size();
 
-    time_t seconds { time(NULL) };
-    int daysSinceEpoch = (seconds / 60 / 60 + 2) / 24;
-    srand(daysSinceEpoch);
+    srand(time(NULL));
 
     int quoteNumber = rand() % quoteCount;
 
