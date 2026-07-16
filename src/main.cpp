@@ -90,17 +90,9 @@ json getTodaysQuote(fs::path resource_path) {
     return quote;
 }
 
-json getConfig(fs::path resource_path) {
-    std::ifstream f { resource_path / "config.json" };
-    json data = json::parse(f);
-
-    return data["discord"];
-}
-
 int main() {
     fs::path resource_path = exe_dir() / "resources";
 
-    json config = getConfig(resource_path);
     json quote = getTodaysQuote(resource_path);
 
     std::string url = std::format("https://discord.com/api/v9/applications/{}/users/{}/identities/0/profile",
