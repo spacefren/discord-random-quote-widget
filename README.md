@@ -42,7 +42,7 @@ In your github fork, go to **Settings** → **Secrets and variables** → **Acti
 
 #### 5. Change the quotes
 Modify the `Resources/quotes.json` file.
-- To create a quote that spans two lines (title and subtitle), separate with "\n".
+- To create a quote that spans two lines (title and subtitle), separate with `\n`.
 - For images, make sure the link resolves to an image.
 
 > [!TIP]
