@@ -1,0 +1,33 @@
+name: Update quote
+
+on:
+  schedule:
+    - cron: '0 * * * *'   # every hour, adjust as needed
+  workflow_dispatch:
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache build dir
+        uses: actions/cache@v4
+        with:
+          path: build
+          key: ${{ runner.os }}-build-${{ hashFiles('CMakeLists.txt', 'src/**', 'cmake/**') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --parallel
+
+      - name: Run
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          USER_ID: ${{ secrets.USER_ID }}
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: ./build/discord-random-quote
