@@ -9,11 +9,11 @@
 
 #### 1. Fork this repository
 
-#### 2. Create a discord application
+#### 2. Create a discord application and widget
 Follow the steps in ![this blog post](https://chloecinders.com/blog/discord-widgets) by chloecinders. Alternatively, use the ![automated script](https://gist.github.com/aamiaa/7cdd590e3949cd654758bc90bcb4710b) by aamiaa.
 
 #### 3. Adjust the widget data fields
-Edit the widget and fill in all the required fields (see the "Validation" tab). For each of the following sections, select `UserData` under Value Type and set the following data fields:
+Edit the widget and fill in all the required fields (see the `Validation` tab). For each of the following sections, select `UserData` under Value Type and set the following data fields:
 |Field|Presentation Type|Data Field|
 |---|---|---|
 |Widget Top → Image|---|`quote-image`|
@@ -33,7 +33,7 @@ For the Widget Bottom fields to show up, set the design type to `Progress`.
 > `Subtitle 2` remains unused. By selecting `Custom String`, you can add any static text. Consider using an invisible, non-whitespace unicode character (such as the zero width joiner) to create some spacing between the quote and the author.
 
 #### 4. Add github secrets
-In your github fork, go to Settings → Secrets and variables → Actions → New repository secret and add the following data from your discord application dashboard:
+In your github fork, go to **Settings** → **Secrets and variables** → **Actions** → **New repository secret** and add the following data from your discord application dashboard:
 |Secret|Value|
 |---|---|
 |`APP_ID`|Your discord app's ID (General Information → Application ID)
@@ -42,11 +42,11 @@ In your github fork, go to Settings → Secrets and variables → Actions → Ne
 
 #### 5. Change the quotes
 Modify the `Resources/quotes.json` file.
-To create a quote that spans two lines (title and subtitle), separate with "\n".
-For images, make sure the link resolves to an image.
+- To create a quote that spans two lines (title and subtitle), separate with "\n".
+- For images, make sure the link resolves to an image.
 
 > [!TIP]
 > When using the `Hero` version of the widget, the image will be slightly bigger than the container. Consider using a transparent image to make the character pop out, or add a transparent band at the top.
 
-#### 5. Run it
-Open **Actions** → **Update quote** → **Run workflow**. Upon the first successfull run, the quote will change every hour (modify the cron schedule at `.github/workflows/main.yml` to change the interval).
+#### 6. Run it
+Open **Actions** → **Update quote** → **Run workflow**. Upon the first successfull run, the quote will change every day (modify the cron schedule at `.github/workflows/main.yml` to change the interval).
