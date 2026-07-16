@@ -19,8 +19,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-
 
+      - name: Install deps
+        run: sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev
+      
       - name: Configure
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCPR_USE_SYSTEM_CURL=ON
 
       - name: Build
         run: cmake --build build --parallel
