@@ -10,7 +10,7 @@
 #### 1. Fork this repository
 
 #### 2. Create a discord application and widget
-Follow the steps in ![this blog post](https://chloecinders.com/blog/discord-widgets) by chloecinders. Alternatively, use the ![automated script](https://gist.github.com/aamiaa/7cdd590e3949cd654758bc90bcb4710b) by aamiaa.
+Follow the steps in [this blog post](https://chloecinders.com/blog/discord-widgets) by chloecinders. Alternatively, use the [automated script](https://gist.github.com/aamiaa/7cdd590e3949cd654758bc90bcb4710b) by aamiaa.
 
 #### 3. Adjust the widget data fields
 Edit the widget and fill in all the required fields (see the `Validation` tab). For each of the following sections, select `UserData` under Value Type and set the following data fields:
